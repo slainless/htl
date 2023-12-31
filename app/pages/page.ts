@@ -4,10 +4,8 @@ export default function Home() {
   return html`
     <!DOCTYPE HTML>
     <html>
-      <title>fuck this shit br</title>
-      <body>
-        hehe shit
-      </body>
+      <title>Home</title>
+      <body>Home page</body>
     </html>
   `
 }

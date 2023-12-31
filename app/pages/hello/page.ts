@@ -1,5 +1,5 @@
 import { html } from 'lit'
 
 export default function Hello() {
-  return html`goddamn shit!`
+  return html`Even arbitrary strings are outputted!`
 }

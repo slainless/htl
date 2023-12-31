@@ -1,1 +1,1 @@
-export const sss = "asdasd wtf"
+export const sss = "hehe"
