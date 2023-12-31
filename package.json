@@ -4,11 +4,25 @@
   "type": "module",
   "devDependencies": {
     "@lit-labs/ssr": "^3.2.0",
+    "@storybook/addon-essentials": "^7.6.6",
+    "@storybook/addon-links": "^7.6.6",
+    "@storybook/blocks": "^7.6.6",
+    "@storybook/web-components": "^7.6.6",
+    "@storybook/web-components-vite": "^7.6.6",
     "@stricjs/router": "^5.0.6",
     "@stricjs/utils": "^2.0.3",
     "@types/bun": "latest",
+    "@types/node": "^20.10.6",
     "chokidar": "^3.5.3",
     "concurrently": "^8.2.2",
+    "esbuild": "^0.19.11",
+    "esbuild-sass-plugin": "^2.16.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.69.6",
+    "storybook": "^7.6.6",
+    "storybook-dark-mode": "^3.0.3",
+    "vite-tsconfig-paths": "^4.2.3",
     "unionfs": "^4.5.1"
   },
   "peerDependencies": {
@@ -23,12 +37,12 @@
     "build:pages": "bun scripts/build-pages.ts",
     "build:pages:watch": "bun --watch scripts/build-pages.ts",
     "build:pages:chokidar": "CHOKIDAR_WATCH=true bun scripts/build-pages.ts",
-    "build:entry": "bun build app/index.ts --outdir public",
+    "build:entry": "bun run scripts/build-entry.ts",
     "build": "bun run build:pages && bun run build:entry",
-
-    "dev:entry": "bun build app/index.ts --outdir .dev",
     "dev:server": "bun run scripts/dev-server.ts",
-    "dev:native": "export ENV=development && concurrently \"bun run dev:entry --watch\" \"bun run build:pages:watch\" \"bun run dev:server\"",
-    "dev": "export ENV=development && concurrently \"bun run dev:entry --watch\" \"bun run build:pages:chokidar\" \"bun run dev:server\""
+    "dev:native": "export ENV=development && concurrently \"WATCH=true bun run build:entry\" \"bun run build:pages:watch\" \"bun run dev:server\"",
+    "dev": "export ENV=development && concurrently \"WATCH=true bun run build:entry\" \"bun run build:pages:chokidar\" \"bun run dev:server\"",
+    "storybook": "storybook dev -p 6006",
+    "build:storybook": "storybook build"
   }
 }

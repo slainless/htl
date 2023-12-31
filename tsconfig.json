@@ -4,8 +4,6 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleDetection": "force",
-    "jsxFactory": "html",
-    "jsxImportSource": "lit",
     "allowJs": true,
 
     /* Bundler mode */
