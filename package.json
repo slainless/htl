@@ -1,0 +1,34 @@
+{
+  "name": "htl",
+  "module": "app/index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@lit-labs/ssr": "^3.2.0",
+    "@stricjs/router": "^5.0.6",
+    "@stricjs/utils": "^2.0.3",
+    "@types/bun": "latest",
+    "chokidar": "^3.5.3",
+    "concurrently": "^8.2.2",
+    "unionfs": "^4.5.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "lit": "^3.1.0",
+    "pino": "^8.17.2",
+    "pino-pretty": "^10.3.1"
+  },
+  "scripts": {
+    "build:pages": "bun scripts/build-pages.ts",
+    "build:pages:watch": "bun --watch scripts/build-pages.ts",
+    "build:pages:chokidar": "CHOKIDAR_WATCH=true bun scripts/build-pages.ts",
+    "build:entry": "bun build app/index.ts --outdir public",
+    "build": "bun run build:pages && bun run build:entry",
+
+    "dev:entry": "bun build app/index.ts --outdir .dev",
+    "dev:server": "bun run scripts/dev-server.ts",
+    "dev:native": "export ENV=development && concurrently \"bun run dev:entry --watch\" \"bun run build:pages:watch\" \"bun run dev:server\"",
+    "dev": "export ENV=development && concurrently \"bun run dev:entry --watch\" \"bun run build:pages:chokidar\" \"bun run dev:server\""
+  }
+}
