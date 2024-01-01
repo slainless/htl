@@ -1,4 +1,3 @@
 import { testingMod } from '!modules/testing.ts'
-import './index.css'
-
-console.log("Hello via Bun!", testingMod)
+import "./components.ts"
+import './index.scss'
