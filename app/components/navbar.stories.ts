@@ -5,9 +5,12 @@ const meta = {
   title: 'Components/Header',
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
-  render: () => Navbar(),
+  render: (args) => Navbar(args),
   parameters: {
     layout: "fullscreen"
+  },
+  argTypes: {
+    contrast: { control: "boolean" }
   }
 } satisfies Meta<NavbarProps>
 
