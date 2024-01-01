@@ -1,6 +1,7 @@
 import type { StorybookConfig } from "@storybook/web-components-vite"
 import tsconfigPaths from 'vite-tsconfig-paths'
 import sassPlugin from 'esbuild-sass-plugin'
+// import { tsconfigImportMapper } from '../framework/plugins/import-mapper.js'
 
 const config: StorybookConfig = {
   stories: [
@@ -18,7 +19,7 @@ const config: StorybookConfig = {
     autodocs: "tag",
   },
   viteFinal(config, options) {
-    config.plugins?.push(tsconfigPaths(), sassPlugin())
+    config.plugins?.push(tsconfigPaths())
     config.assetsInclude = ['/sb-preview/runtime.js']
     return config
   },

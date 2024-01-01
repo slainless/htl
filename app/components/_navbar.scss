@@ -1,8 +1,24 @@
-@use '@carbon/styles';
-
-
+@use '../styles/token';
+@use '../styles/utils';
 
 .navbar {
+  display: flex;
+  align-items: center;
+
   width: 100%;
-  background-color: styles.$layer-01;
+
+  background-color: token.$layer-01;
+  padding: token.$spacing-04 token.$spacing-08;
+
+  &--contrast {
+    background-color: token.$background;
+  }
+
+  &__logo {
+    width: utils.rem(64px);
+  }
+
+  &__list {
+    margin-right: token.$spacing-02;
+  }
 }

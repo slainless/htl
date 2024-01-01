@@ -13,6 +13,7 @@
     "@stricjs/utils": "^2.0.3",
     "@types/bun": "latest",
     "@types/node": "^20.10.6",
+    "@types/web": "^0.0.133",
     "chokidar": "^3.5.3",
     "concurrently": "^8.2.2",
     "esbuild": "^0.19.11",
@@ -22,8 +23,8 @@
     "sass": "^1.69.6",
     "storybook": "^7.6.6",
     "storybook-dark-mode": "^3.0.3",
-    "vite-tsconfig-paths": "^4.2.3",
-    "unionfs": "^4.5.1"
+    "unionfs": "^4.5.1",
+    "vite-tsconfig-paths": "^4.2.3"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
@@ -31,6 +32,7 @@
   "dependencies": {
     "@carbon/styles": "^1.46.0",
     "@carbon/web-components": "^2.1.0",
+    "@ibm/plex": "^6.3.0",
     "lit": "^3.1.0",
     "pino": "^8.17.2",
     "pino-pretty": "^10.3.1"
@@ -44,7 +46,10 @@
     "dev:server": "bun run scripts/dev-server.ts",
     "dev:native": "export ENV=development && concurrently \"WATCH=true bun run build:entry\" \"bun run build:pages:watch\" \"bun run dev:server\"",
     "dev": "export ENV=development && concurrently \"WATCH=true bun run build:entry\" \"bun run build:pages:chokidar\" \"bun run dev:server\"",
-    "storybook": "storybook dev -p 6006",
-    "build:storybook": "storybook build"
+    "!build:storybook:style": "sass --load-path=node_modules app/index.scss:.storybook/index.css app/theme.scss:.storybook/theme.css",
+    "!build:storybook": "concurrently \"bun run build:storybook:style\" storybook build",
+    "!storybook": "concurrently \"bun run build:storybook:style --watch\" \"storybook dev -p 6006\"",
+    "build:storybook": "storybook build",
+    "storybook": "storybook dev -p 6006 --no-open"
   }
 }

@@ -1,0 +1,9 @@
+@use "sass:math";
+
+:root {
+  --htl-scale: 1;
+}
+
+@function rem($px) {
+  @return calc((0.0625rem * math.div($px, 1px)) * var(--htl-scale));
+}

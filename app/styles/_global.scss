@@ -1,0 +1,10 @@
+@use './token';
+
+.spacer {
+  flex-grow: 1;
+}
+
+.htl--link--mute {
+  #{token.get-name("link-primary")}: token.$text-primary;
+  #{token.get-name("link-primary-hover")}: token.$text-primary;
+}
