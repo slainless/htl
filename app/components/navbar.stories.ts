@@ -10,7 +10,13 @@ const meta = {
     layout: "fullscreen"
   },
   argTypes: {
-    contrast: { control: "boolean" }
+    contrast: {
+      control: "boolean",
+      defaultValue: false,
+      name: "Contrast",
+      description: "Whether to force contrasting theme (g100) or not",
+      type: "boolean"
+    }
   }
 } satisfies Meta<NavbarProps>
 

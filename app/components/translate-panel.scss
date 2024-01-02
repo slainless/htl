@@ -1,0 +1,21 @@
+@use '../styles/token';
+@use '../styles/utils';
+
+.translate-panel {
+  --translate-panel--padding: #{token.$spacing-06};
+  display: grid;
+  background-color: token.$layer-02;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  &__input-pane,
+  &__output-pane {
+    padding: var(--translate-panel--padding);
+  }
+
+  &__input-pane {
+    border-right: 1px solid token.$border-subtle-02;
+  }
+
+  &__output-pane {}
+}

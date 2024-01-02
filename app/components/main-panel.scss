@@ -1,0 +1,9 @@
+@use '../styles/token';
+@use '../styles/utils';
+
+.main-panel {
+  &__panel {
+    background-color: token.$layer-01;
+    padding: token.$spacing-05 token.$spacing-05 token.$spacing-05 token.$spacing-05;
+  }
+}
